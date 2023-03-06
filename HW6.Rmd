@@ -1,0 +1,54 @@
+---
+title: "HW5"
+author: "Ben Lehmnn"
+date: "2023-03-02"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+#Question Set 1
+```{r}
+library(ggplot2)
+
+#1852
+
+choc <- read.csv("https://ds202-at-isu.github.io/labs/data/choco.csv")
+
+ggplot(choc, aes(x=Rating)) + geom_histogram() + facet_wrap(~Review.Date)
+```
+
+
+Question Set 2
+```{r}
+ggplot(choc, aes(x=Rating)) + geom_histogram()
+
+#We see an outlier with the rating near 5, we also see a skew in the distribution
+
+print(cor(choc$Cocoa.Pct,choc$Rating))   #-0.16  (Not much correlation, so, no)
+
+filter(choc, Company.Location %in% c("U.S.A.", "France", "Canada"))
+
+```
+
+In year 2017, which companies produced the best chocolate(Mean rating per company)
+```{r}
+choc_2017 = choc[choc$Review.Date == 2017,]
+best = aggregate(Rating ~ Company, choc_2017, FUN=mean)
+ggplot(best, aes(x=Rating,y=reorder(Company,Rating))) + geom_col()
+```
+Zotter(Austria),Coppeneur(Germany), 
+
+Conclusion: I noticed, I took a look at the top 10, and what I noticed is that the top chocolate comes from
+Europe, however, we did have one company from the US
+
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
