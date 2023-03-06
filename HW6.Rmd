@@ -39,6 +39,14 @@ filter(choc, Company.Location %in% c("U.S.A.", "France", "Canada"))
 
 ```
 
+```{r}
+x_c = choc[choc$Company.Location %in% c("U.S.A.", "France", "Canada"),]
+
+ggplot(x_c, aes(x=Rating)) + geom_bar() + facet_wrap(~Company.Location)
+
+```
+
+
 In year 2017, which companies produced the best chocolate(Mean rating per company)
 ```{r}
 choc_2017 = choc[choc$Review.Date == 2017,]
