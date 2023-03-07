@@ -56,4 +56,8 @@ Conclusion: I noticed, I took a look at the top 10, and what I noticed is that t
 Europe, however, we did have one company from the US
 
 
+Flow: Any time I get new results, such as a new table or graph, I would commit it. I repeat the process
+until I am done. Because I am the only one, I didn't have to fork or pull request this time. I would also try
+knitting every new graph I would get, alone with any new tables.
+
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
